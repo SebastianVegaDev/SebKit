@@ -1,4 +1,4 @@
-export function hasMaxLength(
+export function hasMinLength(
     value: unknown,
     minLength: unknown
 ): boolean {
