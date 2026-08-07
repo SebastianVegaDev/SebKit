@@ -1,4 +1,4 @@
-export function isNumber(
+export function isFloat(
     value: unknown
 ): value is number {
     return typeof value === "number" && 
