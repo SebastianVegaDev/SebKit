@@ -1,8 +1,8 @@
-export async function retry<T>(
-    callback: () => Promise<T>,
+export function retry<T>(
+    callback: () => T,
     attempts: number
-): Promise<T> {
-    if (!Number.isInteger(attempts) || attempts === 0) {
+): T {
+    if (!Number.isInteger(attempts) || attempts <= 0) {
         throw new RangeError("attempts must be a positive integer");
     }
 
@@ -10,11 +10,11 @@ export async function retry<T>(
 
     for (let attempt = 1; attempt <= attempts; attempt++) {
         try {
-            return await callback();
-        } catch(error: unknown) {
+            return callback();
+        } catch (error: unknown) {
             lastError = error;
         }
     }
 
-    throw lastError
+    throw lastError;
 }
