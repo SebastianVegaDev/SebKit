@@ -3,10 +3,13 @@ export function deepMerge<T extends object, U extends object>(
     source: U
 ): T & U  {
     const result = { ...target} as T & U;
+    const targetRecord = target as Record<string, unknown>;
+    const sourceRecord = source as Record<string, unknown>;
+    const resultRecord = result as Record<string, unknown>;
 
-    for (const key in result) {
-        const sourceValue = source[key as keyof U];
-        const targetValue = target[key as keyof T];
+    for (const key in source) {
+        const sourceValue = sourceRecord[key];
+        const targetValue = targetRecord[key];
 
         const canMerge = sourceValue !== null &&
             typeof sourceValue === "object" &&
@@ -16,12 +19,12 @@ export function deepMerge<T extends object, U extends object>(
             !Array.isArray(targetValue)
 
         if (canMerge) {
-            (result as Record<string, unknown>)[key] = deepMerge(
+            resultRecord[key] = deepMerge(
                 targetValue,
                 sourceValue
             );
         } else {
-            (result as Record<string, unknown>)[key] = sourceValue
+            resultRecord[key] = sourceValue
         }
     }
 

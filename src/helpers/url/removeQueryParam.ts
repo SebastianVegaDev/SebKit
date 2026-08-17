@@ -1,4 +1,4 @@
-export function removeQueryParm(
+export function removeQueryParam(
     url: string,
     key: string,
 ): string {

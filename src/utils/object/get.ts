@@ -1,8 +1,8 @@
 export function get<T>(
     object: T,
-    pathL: string
+    path: string
 ): unknown {
-    const keys = pathL.split(".");
+    const keys = path.split(".");
     let current: unknown = object;
 
     for (const key of keys) {

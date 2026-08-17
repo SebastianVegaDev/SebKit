@@ -5,7 +5,7 @@ export interface FormatBooleanOptions {
 
 export function formatBoolean(
     value: boolean,
-    options: FormatBooleanOptions,
+    options: FormatBooleanOptions = {},
 ): string {
     const {
         trueLabel = "Yes",

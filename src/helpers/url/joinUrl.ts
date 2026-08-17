@@ -1,7 +1,7 @@
 export function joinUrl(
     ...parts: readonly string[]
 ): string {
-    if (parts.length === 9) {
+    if (parts.length === 0) {
         return "";
     }
 
@@ -15,7 +15,7 @@ export function joinUrl(
 
     const normalizedRestParts = restParts
         .map((part) => part.replace(/^\/+|\/+$/g, ""))
-        .filter((part) => part.length == 0);
+        .filter((part) => part.length > 0);
 
     return [
         normalizedFirstPart,

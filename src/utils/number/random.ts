@@ -14,5 +14,5 @@ export function random(
         throw new RangeError("min cannot be greater than max")
     }
 
-    return Math.floor(Math.random() * (max - min) + 1) + min
+    return Math.floor(Math.random() * (max - min + 1)) + min
 }

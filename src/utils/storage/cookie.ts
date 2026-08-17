@@ -11,13 +11,13 @@ export interface CookieOptions {
 
 function ensureBrowser(): void {
     if (typeof document === "undefined") {
-        throw new Error("cokkie utilities are only available in browser environments");
+        throw new Error("cookie utilities are only available in browser environments");
     }
 }
 
 function validateName(name: string): void {
     if (typeof name !== "string" || name.trim().length === 0) {
-        throw new TypeError("cookie name must be a non empty string");
+        throw new TypeError("cookie name must be a non-empty string");
     }
 }
 
@@ -31,7 +31,7 @@ function validateOptions(options: CookieOptions): void {
     if (options.expires !== undefined) {
         if (
             !(options.expires instanceof Date) ||
-            Number.isNaN(options.expires.getTime)
+            Number.isNaN(options.expires.getTime())
         ) {
             throw new TypeError("expires must be a valid Date");
         }
@@ -72,7 +72,7 @@ function set(
         parts.push(`Expires=${options.expires.toUTCString()}`);
     }
 
-    if (options.secure !== undefined) {
+    if (options.secure === true) {
         parts.push("Secure");
     }
 

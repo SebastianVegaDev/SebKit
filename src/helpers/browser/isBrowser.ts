@@ -1,6 +1,6 @@
 export function isBrowser(): boolean {
     return (
-        typeof Window !== "undefined" &&
+        typeof window !== "undefined" &&
         typeof document !== "undefined"
     )
 }

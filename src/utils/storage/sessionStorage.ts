@@ -33,7 +33,7 @@ function set<T>(key: string, value: T): void {
     const serializedValue = serializeValue(value);
 
     try {
-        window.localStorage.setItem(key, serializedValue);
+        window.sessionStorage.setItem(key, serializedValue);
     } catch {
         throw new Error(`failed to store value for key "${key}"`);
     }
@@ -43,7 +43,7 @@ function get<T>(key: string): T | null {
     ensureBrowser();
     validateKey(key);
 
-    const value = window.localStorage.getItem(key);
+    const value = window.sessionStorage.getItem(key);
 
     if (value === null) {
     return null;
@@ -56,20 +56,20 @@ function has(key: string): boolean {
     ensureBrowser();
     validateKey(key);
 
-    return window.localStorage.getItem(key) !== null;
+    return window.sessionStorage.getItem(key) !== null;
 }
 
 function remove(key: string): void {
     ensureBrowser();
     validateKey(key);
 
-    window.localStorage.removeItem(key);
+    window.sessionStorage.removeItem(key);
 }
 
 function clear(): void {
     ensureBrowser();
 
-    window.localStorage.clear();
+    window.sessionStorage.clear();
 }
 
 export const sessionStorageKit = {

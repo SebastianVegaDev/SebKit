@@ -29,6 +29,6 @@ export function formatInitials(
         : words.slice(0, maxInitials);
 
     return selectedWords
-        .map((word) => word.charAt(0).toUpperCase)
+        .map((word) => word.charAt(0).toUpperCase())
         .join(separator);
 }
