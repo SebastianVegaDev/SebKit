@@ -1,4 +1,4 @@
-type FormDataValue =
+export type FormDataValue =
     | string
     | number
     | boolean

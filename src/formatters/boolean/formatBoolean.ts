@@ -1,4 +1,4 @@
-interface FormatBooleanOptions {
+export interface FormatBooleanOptions {
     trueLabel?: string;
     falseLabel?: string;
 }

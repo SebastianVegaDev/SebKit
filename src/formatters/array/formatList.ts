@@ -1,4 +1,4 @@
-interface FormatListOptions {
+export interface FormatListOptions {
     locale?: string;
     style?: Intl.ListFormatStyle;
     type?: Intl.ListFormatType;
