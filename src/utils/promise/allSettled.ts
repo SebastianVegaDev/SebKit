@@ -1,4 +1,4 @@
-interface AllSettledResult<T> {
+export interface AllSettledResult<T> {
     fulfilled: T[],
     rejected: unknown[],
 }

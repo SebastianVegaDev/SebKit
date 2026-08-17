@@ -9,7 +9,7 @@ export function formatCurrency(
 ): string {
     const {
         locale = "en-US",
-        currency,
+        currency = "USD",
     } =  options;
 
     const formatter = new Intl.NumberFormat(locale, {

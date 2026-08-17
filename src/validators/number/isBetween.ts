@@ -1,4 +1,4 @@
-export function isBeetwen(
+export function isBetween(
     value: unknown,
     min: number,
     max: number

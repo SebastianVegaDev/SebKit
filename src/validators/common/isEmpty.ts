@@ -11,5 +11,13 @@ export function isEmpty(value: unknown): boolean {
         return value.length === 0
     }
 
-    return true
+    if (value instanceof Map || value instanceof Set) {
+        return value.size === 0;
+    }
+
+    if (typeof value === "object") {
+        return Object.keys(value).length === 0;
+    }
+
+    return false
 }

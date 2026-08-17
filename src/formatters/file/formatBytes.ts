@@ -7,7 +7,7 @@ export function formatBytes(
     options: FormatBytesOptions = {},
 ): string {
     if (!Number.isFinite(bytes) || bytes < 0) {
-        throw new RangeError("bytes must e a non-negative finite number");
+        throw new RangeError("bytes must be a non-negative finite number");
     }
 
     const {

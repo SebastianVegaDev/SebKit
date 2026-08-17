@@ -7,7 +7,7 @@ export function formatRelativeTime(
     milliseconds: number,
     options: FormatRelativeTimeOptions = {},
 ): string {
-    if (!Number.isFinite(milliseconds) || milliseconds < 0) {
+    if (!Number.isFinite(milliseconds)) {
         throw new RangeError("milliseconds must be a finite number");
     }
 
@@ -35,19 +35,19 @@ export function formatRelativeTime(
     
     const hours = minutes / 60;
 
-    if (absoluteSeconds < 60) {
+    if (absoluteSeconds < 86400) {
         return formatter.format(Math.round(hours), "hour");
     } 
     
     const days = hours / 24;
 
-    if (absoluteSeconds < 60) {
+    if (absoluteSeconds < 2592000) {
         return formatter.format(Math.round(days), "day");
     } 
     
     const months = days / 30;
 
-    if (absoluteSeconds < 60) {
+    if (absoluteSeconds < 31536000) {
         return formatter.format(Math.round(months), "month");
     } 
     

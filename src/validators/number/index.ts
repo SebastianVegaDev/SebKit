@@ -1,4 +1,4 @@
-export { isBeetwen } from "./isBetween.js";
+export { isBetween } from "./isBetween.js";
 export { isEven } from "./isEven.js";
 export { isFiniteNumber } from "./isFiniteNumber.js";
 export { isFloat } from "./isFloat.js";

@@ -1,11 +1,11 @@
-interface FormatBooleanOptions {
+export interface FormatBooleanOptions {
     trueLabel?: string;
     falseLabel?: string;
 }
 
 export function formatBoolean(
     value: boolean,
-    options: FormatBooleanOptions,
+    options: FormatBooleanOptions = {},
 ): string {
     const {
         trueLabel = "Yes",

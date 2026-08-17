@@ -2,7 +2,7 @@ export function isEmptyObject(
     value: unknown
 ): boolean {
     if (
-        typeof value !== "string" ||
+        typeof value !== "object" ||
         value === null ||
         Array.isArray(value)
     ) {

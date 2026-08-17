@@ -1,4 +1,4 @@
-type Flatten<T> = T extends readonly (infer U)[]
+export type Flatten<T> = T extends readonly (infer U)[]
     ? Flatten<U>
     : T
 
