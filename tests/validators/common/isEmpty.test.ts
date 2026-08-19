@@ -51,7 +51,7 @@ describe("isEmpty", () => {
                 ["language", "typescript"],
             ]);
 
-            expect(isEmpty(map)).toBe(false)
+            expect(isEmpty(map)).toBe(false);
         });
 
 
@@ -65,7 +65,44 @@ describe("isEmpty", () => {
                 "TypeScript",
             ]);
 
-            expect(isEmpty(set)).toBe(false)
+            expect(isEmpty(set)).toBe(false);
         });
+    });
+
+    describe("objects", () => {
+        it("returns true for an object without own enumerable properties", () => {
+            expect(isEmpty({})).toBe(true);
+        });
+
+        it("returns false for a object with properties", () => {
+            const object = {
+                name: "SebKit"
+            }
+
+            expect(isEmpty(object)).toBe(false);
+        });
+
+        it("returns false when an object has a property whose value is undefined", () => {
+            const object = {
+                value: undefined
+            }
+
+            expect(isEmpty(object)).toBe(false);
+        });
+    });
+
+    describe("other primitives values", () => {
+        it.each([
+            0,
+            1,
+            false,
+            true,
+            NaN,
+        ])(
+            "returns false for a primitive without an emptiness concept: %s",
+            (value) => {
+                expect(isEmpty(value)).toBe(false);
+            }
+        );
     });
 });
